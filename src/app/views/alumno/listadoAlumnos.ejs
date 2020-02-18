@@ -1,0 +1,65 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+<section class="container">
+  <div class="form-row">
+    <h1 class="display-4 col-md-12 my-2">Listado de Alumnos</h1>
+      <div class="form-group col-md-5">
+        <label for="tipoAlumno" class="lead mt-2">Tipo de Alumno</label>
+        <form action="/listadoAlumnosFiltrado" method="POST">
+          <select id="tipoAlumno" class="form-control" name="tipoAlumno" onchange="getValueSelect();">
+            <option value="General">General</option>
+            <option value="lactantes 1">lactantes 1</option>
+            <option value="lactantes 2">lactantes 2</option>
+            <option value="lactantes 3">lactantes 3</option>
+            <option value="Maternal 1">Maternal 1</option>
+            <option value="Maternal 2">Maternal 2</option>
+            <option value="Maternal 3">Maternal 3</option>
+            <option value="Preescolar 1">Preescolar 1</option>
+            <option value="Preescolar 2">Preescolar 2</option>
+            <option value="Preescolar 3">Preescolar 3</option>
+          </select>
+          <br> 
+          <button type="submit" class="btn btn-info">F I L T R A R</button> 
+        </form>
+      </div>
+  </div>
+  <div class="col-md-12 mt-4 text-center">
+    <table class="table table-striped">
+      <tr>
+        <th>Folio</th>
+        <th>Nombre</th>
+        <th>Fecha Nacimiento</th>
+        <th colspan="2">Acciones</th>
+      </tr>
+      <% for (var i = 0; i < result.length; i++) {%>
+        <tr>
+          <td><%=result[i].folio%></td>
+          <td><%=result[i].nombre%></td>
+          <td><%=result[i].fechaNacimiento%></td>
+          <td>
+            <form method="GET" action="/editar/<%=result[i].idalumno%>">
+              <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="/eliminar/<%=result[i].idalumno%>">
+              <button type="button" class="btn btn-danger" onclick="eliminar(this)">Eliminar</button>
+            </form>
+            <script>
+              function eliminar(input){
+                var deleteOk = confirm('Estas seguro de eliminar el registro ? ') ;
+                return (deleteOk) ? input.parentNode.submit() : false; 
+              }  
+              function getValueSelect(){
+                var selectedValue = document.getElementById("tipoAlumno").value;
+                console.log(selectedValue);
+              }
+            </script>
+          </td>          
+        </tr>
+      <%}%>
+    </table>
+  </div>
+</section>
+
+<% include ../partials/footer.ejs %>

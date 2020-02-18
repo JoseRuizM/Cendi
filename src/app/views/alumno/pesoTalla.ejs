@@ -1,0 +1,63 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-12 mt-4 card">
+				<form action="/controlPesoTalla" method="POST" class="card-body">
+					<h3 class="card-title">Nuevo Registro Peso y Talla</h3>
+					<div class="form-group">
+						<input type="text" name="nombre" class="form-control" placeholder="Nombre completo del alumno" data-toggle="tooltip" data-placement="top" title="Alumno a registrar debe estar dado de alta en el sistema" autofocus required>							
+					</div>					
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<input type="text" name="peso" class="form-control" placeholder="Peso">
+						</div>
+						<div class="form-group col-md-4">
+							<input type="text" name="talla" class="form-control" placeholder="Talla">
+						</div>
+						<div class="form-group col-md-4">
+							<input type="text" name="pesoIdeal" class="form-control" placeholder="Peso Ideal">							
+						</div>												
+					</div>
+					<div class="form-group">
+						<input type="text" name="observacion" class="form-control" placeholder="Observacion">
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<input type="date" name="fecha" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<button type="submit" class="btn btn-success">Guardar</button>				
+						</div>						
+					</div>															
+				</form>
+			</div>			
+			<div class="col-md-12 mt-4 text-center">
+				<table class="table table-striped">
+					<tr>
+						<th>Nombre</th>
+						<th>Peso</th>
+						<th>Talla</th>
+						<th>Peso Ideal</th>
+						<th>Observacion</th>
+						<th>Fecha</th>
+					</tr>
+				
+				
+					<% for (var i = 0; i < alumno.length; i++) {%>
+						<tr>
+							<td><%=alumno[i].nombre%></td>
+							<td><%=alumno[i].peso%></td>
+							<td><%=alumno[i].talla%></td>
+							<td><%=alumno[i].pesoideal%></td>
+							<td><%=alumno[i].observacion%></td>
+							<td><%=alumno[i].fecha%></td>
+						</tr>
+					<%}%>
+				
+				
+				</table>
+			</div>
+		</div>		
+	</div>
+<% include ../partials/footer.ejs %>

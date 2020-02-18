@@ -1,0 +1,123 @@
+<% include ../partials/head.ejs %>
+    <section class="container">
+      <h1 class="display-4 my-2">Edición</h1>
+      <p class="lead">Edición de alumnos en CENDI#4</p>
+      <form method = "POST" action="/actualizarAlumno/<%=alumno[0].idalumno%>" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="folio">Folio</label>
+          <input type="text" class="form-control" id="folio" name="folio" value="<%=alumno[0].folio%>" placeholder="Folio" autofocus required="true">
+        </div>
+        <div class="form-group col-md-10">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="<%=alumno[0].nombre%>" placeholder="Nombre">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="sexo">Sexo</label>
+          <select id="sexo" class="form-control" name="sexo">
+            <% if (alumno[0].value == 1) {%>
+              <option value="1" selected>Masculino</option>
+              <option value="0">Femenino</option>
+            <%} else { %>
+              <option value="1">Masculino</option>
+              <option value="0" selected>Femenino</option>
+            <%}%>
+          </select>
+        </div>
+        <div class="form-group col-md-10">
+          <label for="domicilio">Domicilio</label>
+          <input type="text" class="form-control" id="domicilio" name="domicilio" value="<%=alumno[0].domicilio%>" placeholder="Domicilio...">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="fechaNac">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="fechaNac" name="fechaNacimiento" value="<%=alumno[0].fechaNacimiento%>">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="tipoRH">Tipo RH</label>
+          <select id="tipoRH" class="form-control" name="tipoRH">
+            <option value="<%=alumno[0].tipoRH%>" style="background: #5cb85c; color: #fff;"><%=alumno[0].tipoRH%></option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="alergia">Alergia</label>
+          <input type="text" class="form-control" id="alergia" name="alergia" value="<%=alumno[0].alergia%>">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="fechaIng">Fecha de Ingreso</label>
+          <input type="datetime-local" class="form-control" id="fechaIng" name="fechaIngreso" value="<%=alumno[0].fechaIngreso%>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="foto">Subir foto...</label>
+            <input type="file" class="form-control-file" id="foto" name="foto" value="<%=alumno[0].foto%>">         <!--  <img src="imagesAlumnos/<%=alumno[0].foto%>" alt="cagada" height="42" width="42"> -->
+        </div>
+        <div class="form-group col-md-5">
+          <label for="tipoAlumno">Tipo de Alumno</label>
+          <select id="tipoAlumno" class="form-control" name="tipoAlumno">
+            <option value="<%=alumno[0].tipoAlumno%>" style="background: #5cb85c; color: #fff;"><%=alumno[0].tipoAlumno%></option>
+            <option>lactantes 1</option>
+            <option>lactantes 2</option>
+            <option>lactantes 3</option>
+            <option>Maternal 1</option>
+            <option>Maternal 2</option>
+            <option>Maternal 3</option>
+            <option>Preescolar 1</option>
+            <option>Preescolar 2</option>
+            <option>Preescolar 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">  
+          <img src="../imagesAlumnos/<%=alumno[0].foto%>" height="211" width="180">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          Niño Necesidades Especiales
+        </div>
+        <% if (alumno[0].nne == 1) {%>
+        <div class="form-group col-md-1">
+          <input class="form-check-input" type="radio" name="nne" id="Si" value="1" checked>
+          <label class="form-check-label" for="Si">
+            Si
+          </label>
+        </div>
+        <div class="form-group col-md-1">
+          <input class="form-check-input" type="radio" name="nne" id="No" value="0">
+          <label class="form-check-label" for="No">
+            No
+          </label>
+        </div>        
+        <%}else {%>
+        <div class="form-group col-md-1">
+          <input class="form-check-input" type="radio" name="nne" id="Si" value="1">
+          <label class="form-check-label" for="Si">
+            Si
+          </label>
+        </div>        
+        <div class="form-group col-md-1">
+          <input class="form-check-input" type="radio" name="nne" id="No" value="0" checked>
+          <label class="form-check-label" for="No">
+            No
+          </label>
+        </div>
+        <%}%>
+      </div>        
+      <button type="submit" class="btn btn-success">Editar</button>
+      </form>
+    </section>
+<% include ../partials/footer.ejs %>

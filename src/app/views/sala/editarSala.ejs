@@ -1,0 +1,45 @@
+<% include ../partials/head.ejs %>
+    <section class="container">
+      <h1 class="display-4 my-2">Edición</h1>
+      <p class="lead">Edición de Salas de CENDI#4</p>
+      <form method = "POST" action="/actualizarSala/<%=sala[0].idsala%>">
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label for="nombre">Nombre de la Sala</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<%=sala[0].nombre%>" required>
+        </div>
+<!--        
+        <div class="form-group col-md-6">
+          <label for="idProfesor">Seleccione Profesor(a) asignado a la sala</label>
+          <select id="idProfesor" class="form-control" name="idprofesor">
+
+    <% /* comment  %>
+            <% if (profesor.length == 0) {%>
+              <option value="0">No existen profesores registrados</option>
+            <%} else {%>
+              <% if (profesor.length < 5) {%>
+                  <% for (var i = 0; i < profesor.length; i++) {%>
+                    <option value="<%=profesor[i].idprofesor%>"><%= profesor[i].nombre%></option>
+                  <%}%>
+                <%} else {%>                                           
+                    <% for (var i = profesor.length-5; i < profesor.length; i++) {%>
+                      <option value="<%=profesor[i].idprofesor%>"><%= profesor[i].nombre%></option>
+                    <%}%>
+                <%}%>
+            <%}%>
+          </select>
+        </div>
+      </div>
+        <% if (profesor.length != 0 ) {%>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        <% }else { %>
+          <button type="submit" class="btn btn-outline-danger" disabled>Guardar</button>
+        <%}%>
+    <% */ %>
+-->
+      </div>
+        <br>
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </form>      
+    </section>   
+<% include ../partials/footer.ejs %>

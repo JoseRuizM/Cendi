@@ -1,0 +1,55 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+<section class="container">
+  <div class="form-row">
+    <h1 class="display-4 col-md-12 my-2">Listado de Tutores</h1>
+    <div class="form-group col-md-5">
+      <label for="tipoAlumno" class="lead mt-2">Parentesco</label>
+      <form action="/listadoTutorFiltrado" method="POST">
+        <select id="tipoAlumno" class="form-control" name="parentesco">
+          <option value="General">General</option>
+          <option value="Madre">Madre</option>
+          <option value="Padre">Padre</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <br> 
+        <button type="submit" class="btn btn-info">F I L T R A R</button> 
+      </form>
+    </div>    
+  </div>
+  <div class="col-md-12 mt-4 text-center">
+    <table class="table table-striped">
+      <tr>
+        <th>Parentesco</th>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th colspan="2">Acciones</th>
+      </tr>
+      <% for (var i = 0; i < result.length; i++) {%>
+        <tr>
+          <td><%=result[i].parentesco%></td>
+          <td><%=result[i].nombre%></td>
+          <td><%=result[i].telefono%></td>
+          <td>
+            <form method="GET" action="/editarTutor/<%=result[i].idtutor%>">
+              <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="/eliminarTutor/<%=result[i].idtutor%>">
+              <button type="button" class="btn btn-danger" onclick="eliminar(this)">Eliminar</button>
+            </form>
+            <script>
+              function eliminar(input){
+                var deleteOk = confirm('Estas seguro de eliminar el registro ? ') ;
+                return (deleteOk) ? input.parentNode.submit() : false; 
+              }  
+            </script>
+          </td>          
+        </tr>
+      <%}%>
+    </table>
+  </div>
+</section>
+
+<% include ../partials/footer.ejs %>

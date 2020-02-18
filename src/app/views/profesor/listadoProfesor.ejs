@@ -1,0 +1,42 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+<section class="container">
+  <div class="form-row">
+    <h1 class="display-4 col-md-12 my-2">Listado de Profesores</h1>
+  </div>
+  <div class="col-md-12 mt-4 text-center">
+    <table class="table table-striped">
+      <tr>
+        <th>Folio</th>
+        <th>Nombre</th>
+        <th>FechaNacimiento</th>
+        <th colspan="2">Acciones</th>
+      </tr>
+      <% for (var i = 0; i < result.length; i++) {%>
+        <tr>
+          <td><%=result[i].folio%></td>
+          <td><%=result[i].nombre%></td>
+          <td><%=result[i].fechaNacimiento%></td>
+          <td>
+            <form method="GET" action="/editarProfesor/<%=result[i].idprofesor%>">
+              <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="/eliminarProfesor/<%=result[i].idprofesor%>">
+              <button type="button" class="btn btn-danger" onclick="eliminar(this)">Eliminar</button>
+            </form>
+            <script>
+              function eliminar(input){
+                var deleteOk = confirm('Estas seguro de eliminar el registro ? ') ;
+                return (deleteOk) ? input.parentNode.submit() : false; 
+              }  
+            </script>
+          </td>          
+        </tr>
+      <%}%>
+    </table>
+  </div>
+</section>
+
+<% include ../partials/footer.ejs %>

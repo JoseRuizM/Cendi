@@ -1,0 +1,61 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+    <section class="container">
+      <h1 class="display-4 my-2">Antecedentes</h1>
+      <p class="lead">Registro antecedentes heredofamiliares</p>
+      <form method = "POST" action="/antecedenteClinicoMadre">
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label for="patologia">Patologia</label>
+          <input type="text" class="form-control" id="patologia" name="patologia" placeholder="patologia">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="gesta">No. Gesta</label>
+          <input type="number" class="form-control" min="1" id="gesta" name="gesta">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="tipoNacimiento">Tipo Nacimiento</label>
+          <input type="text" class="form-control" id="tipoNacimiento" name="tipoNacimiento" placeholder="Descripcion tipo nacimiento">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="atencionPrenatal">Atencion Prenatal</label>
+          <input type="text" class="form-control" id="atencionPrenatal" name="atencionPrenatal" placeholder="Descripcion atencion prenatal">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="semanasGestacion">Semanas de Gestacion</label>
+          <input type="number" class="form-control" min="1" id="semanasGestacion" name="semanasGestacion">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="pesoNacer">Peso al Nacer</label>
+          <input type="text" class="form-control" id="pesoNacer" name="pesoNacer">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="tallaNacer">Talla al Nacer</label>
+          <input type="text" class="form-control" id="tallaNacer" name="tallaNacer">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="apgar">Apgar</label>
+          <input type="number" class="form-control" min="1" id="apgar" name="apgar">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="alteracionNeonatal">Alteracion Neonatal</label>
+          <input type="text" class="form-control" id="alteracionNeonatal" name="alteracionNeonatal" placeholder="Descripcion alteracion neonatal">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="observaciones">Observaciones Generales</label>
+          <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Descripcion observaciones generales">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </section>
+
+<% include ../partials/footer.ejs %>

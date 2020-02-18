@@ -1,0 +1,44 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-12 mt-4 card">
+				<form action="/morbilidad" method="POST" class="card-body">
+                    <h3 class="card-title">Reporte Diario</h3>
+                    <div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <select id="tipoPase" class="form-control" name="tipoPase" required>
+                                <!--<option value="" disabled selected>Tipo de pase medico</option>-->
+                                <option value="Normal" selected>Normal</option>
+                                <option value="Suspension">Suspensión</option>
+                            </select>
+                        </div>                       
+                    </div> 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="date" name="fecha" class="form-control" autofocus required>													
+                        </div> 
+                        <div class="form-group col-md-6">
+                            <input type="text" name="sala" class="form-control" placeholder="Sala" required>													
+                        </div>                         
+                    </div>                          
+					<div class="form-group">
+						<input type="text" name="nombre" class="form-control" placeholder="Nombre completo del alumno" required>							
+                    </div>				
+                    <div class="form-group">
+                        <input type="text" name="sucecio" class="form-control" data-placement="top"  placeholder="¿Cómo sucedio y dónde?" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="sintomas" class="form-control" placeholder="Diagnostico" required>
+                    </div>
+					<div class="form-group">
+                        <button type="submit" class="btn btn-success">Guardar Informacion</button>
+                    </div>             
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning">Generar PDF</button>    
+                    </div>                                                                            
+				</form>
+			</div>			
+		</div>		
+	</div>
+<% include ../partials/footer.ejs %>

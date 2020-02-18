@@ -1,0 +1,32 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-12 mt-4 card">
+				<form action="/morbilidad" method="POST" class="card-body">
+                    <h3 class="card-title">Generar Reporte De Morbilidad</h3>
+                    <div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <select id="tipoPase" class="form-control" name="tipoPase" required>
+                                <!--<option value="" disabled selected>Tipo de pase medico</option>-->
+                                <option value="Normal" selected>Normal</option>
+                                <option value="Suspension">Suspensión</option>
+                            </select>
+                        </div>                       
+                    </div> 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="date" name="fecha" class="form-control" autofocus required>													
+                        </div> 
+                        <div class="form-group col-md-6">
+                            <input type="date" name="fecha" class="form-control" autofocus required>													
+                        </div>                 
+                    </div>                                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning">Generar Reporte</button>    
+                    </div>                                                                            
+				</form>
+			</div>			
+		</div>		
+	</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,78 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/navegacion.ejs %>
+    <section class="container">
+      <h1 class="display-4 my-2">Antecedentes</h1>
+      <p class="lead">Registro antecedentes clinicos</p>
+      <form method = "POST" action="/antecedenteClinicoAlumno">
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label for="patologia">Patologia</label>
+          <input type="text" class="form-control" id="patologia" name="patologia" placeholder="patologia">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="peso">Peso</label>
+          <input type="text" class="form-control" id="peso" name="peso" placeholder="peso">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="talla">Talla</label>
+          <input type="text" class="form-control" id="talla" name="talla" placeholder="talla">
+        </div>
+        <!--
+        <div class="form-group col-md-6">
+          <label for="atencionPrenatal">Atencion Prenatal</label>
+          <input type="text" class="form-control" id="atencionPrenatal" name="atencionPrenatal" placeholder="Descripcion atencion prenatal">
+        </div>
+        -->
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="fc">FC</label>
+          <input type="text" class="form-control" id="fc" name="fc">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="fr">FR</label>
+            <input type="text" class="form-control" id="fr" name="fr">
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="t">T</label>
+          <input type="text" class="form-control" id="t" name="t">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inspeccionGeneral">Inspeccion General</label>
+          <input type="text" class="form-control" id="inspeccionGenaral" name="inspeccionGenaral" placeholder="Descripcion de inspeccion gral.">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="examenLaboratorio">Examen de Laboratorio</label>
+          <input type="text" class="form-control" id="examenLaboratorio" name="examenLaboratorio" placeholder="Descripcion de examen de laboratorio">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="examenLaboratorio">Observacion</label>
+          <input type="text" class="form-control" id="examenLaboratorio" name="examenLaboratorio" placeholder="Descripcion de examen de laboratorio">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="examenLaboratorio">Consideración</label>
+          <input type="text" class="form-control" id="examenLaboratorio" name="examenLaboratorio" placeholder="Descripcion de examen de laboratorio">
+        </div>
+      </div>
+      <div class="form-row">
+        <!--traernos el id del alumno que acabamos de guardar-->
+      </div>
+      <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </section>
+
+<% include ../partials/footer.ejs %>
